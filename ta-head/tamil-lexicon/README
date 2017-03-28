@@ -17,7 +17,6 @@ notes:
 ========================================
 vidhaanaM.sh is shell script to create this.
 it will scrape website, and then create babylon file. it will take 25 minutes, as hyperlinking 0ne lakh entries itself takes 20 minutes. and scraping too make additional time.
-babylon file is more than 100MB; as there are many words.., hence compressed and uploaded.
 
 
 

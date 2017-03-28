@@ -39,9 +39,13 @@ paste తత్కాల్3 తత్కాల్4 |sed 's/^\t//; s/\t$//;' > �
 sed -i.bk '1s/^/\n#stripmethod=keep\n#sametypesequence=h\n#bookname=Tamil_Lexicon\n#వందనాలు : అమ్మకి\n\n/;' తమిళ_శబ్దకోశం_0.babylon
 sed -i '8~3s/^\(.*\)$/<div class="tl_patra">\1<\/div>/;' తమిళ_శబ్దకోశం_0.babylon
 sed -i '/<p>/s/<\/div>$/<\/p><\/div>/;' తమిళ_శబ్దకోశం_0.babylon
-sed  '8~3s/^/<style>span.shirshika{font-weight:bold;font-size:1.5em;} span.uchcharana{color:blue;} span.vyutpatti{color:red;} a.tl_pada:link,a.tl_pada:visited,a.tl_pada{ text-decoration:none; color:#2f4f4f; }a.tl_pada:hover{ text-decoration: underline; color:#2f4f4f; } div.tl_patra{margin: 0 auto 0 auto; line-height:1.5em;padding: 1em; max-width:55.8em; font-size: 1em; padding:0.1em;} sup{font-size:0.5em;}<\/style>/;' తమిళ_శబ్దకోశం_0.babylon > తమిళ_శబ్దకోశం.babylon
+sed  '8~3s/<\/span>/☆/g; 8~3s/<span class="shirshika">\([^☆]*\)☆/<B>\1<\/B>/; s/<span class="vyutpatti">\([^☆]*\)☆/<font color="red">\1<\/font>/; s/<span class="uchcharana">\([^☆]*\)☆/<font color="blue">\1<\/font>/; s/<div class="tl_patra">/<div style="max-width:55.8em;margin: 0 auto 0 auto;">/;'  తమిళ_శబ్దకోశం_0.babylon > తమిళ_శబ్దకోశం.babylon
 sed -i '7~3s/|[ |]*/|/g; 7~3s/^|//; 7~3s/|[ \t]*$//;' తమిళ_శబ్దకోశం.babylon
+sed -i.bk 's/<a class="tl_pada"\([^<>]*\)>\([^<>]*\)<\/a>/<a style="text-decoration:none;color:#2f4f4f;"\1>\2<\/a>/g;' తమిళ_శబ్దకోశం.babylon
+sed -i '8~3s/^/<style>a.tl_X{text-decoration:none;color:#2f4f4f;}<\/style>/; s/<a style="text-decoration:none;color:#2f4f4f;"/<a class="tl_X"/g;' తమిళ_శబ్దకోశం.babylon
 mv తమిళ_శబ్దకోశం.babylon tamil_lexicon.babylon
-rm తమిళ_శబ్దకోశం.babylon తమిళ_శబ్దకోశం_0.babylon శీర్షికలు తత్కాల్2 తత్కాల్* మూల[1234].html తమిళ1.శి  tatkal1 ఉచ్ఛారణ1.శి ఉచ్ఛారణ2.శి
-sed 's/<style>.*<\/style>//;' tamil_lexicon.babylon > tamil_lexicon_styleless.babylon
+rm తమిళ_శబ్దకోశం.babylon తమిళ_శబ్దకోశం_0.babylon శీర్షికలు తత్కాల్2 తత్కాల్* మూల[1234].html తమిళ1.శి  tatkal1 
+sed 's/<style>.*<\/style>//; s/<\/font>/☀/g; s/<font color="red">\([^☀]*\)☀/\1<BR>=========================/; s/☀/<\/font>/g; s/<font[^<>]*>//g; s/<\/font>//g; s/<div[^<>]*>//g; s/<\/div>//g; s/<a class="[^"<>]*"/<a /g;' tamil_lexicon.babylon > tamil_lexicon_minimal.babylon
+sed -i 's/^.*<hr>//;' tamil_lexicon_minimal.babylon
+
 
