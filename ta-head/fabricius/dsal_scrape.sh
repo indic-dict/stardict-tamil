@@ -1,12 +1,3 @@
-#<a href=http://dsalsrv02.uchicago.edu/cgi-bin/app/kadirvelu_query.py?page=1>1 </a>
-#<a href="http://dsalsrv02.uchicago.edu/cgi-bin/app/kadirvelu_query.py?qs=%E0%AE%85%E0%AE%95%E0%AE%AA%E0%AF%8D%E0%AE%AA%E0%AF%82&amp;searchhws=yes"><hw>அகப்பூ</hw></a>
-#
-#<a href=http://dsalsrv02.uchicago.edu/cgi-bin/app/fabricius_query.py?page=1>1 <a>
-#a href="http://dsalsrv02.uchicago.edu/cgi-bin/app/fabricius_query.py?qs=%E0%AE%85%E0%AE%83%E0%AE%95%E0%AE%9F%E0%AE%BF&amp;searchhws=yes"><hw>அஃகடி</hw></a>
-#<a href="http://dsalsrv02.uchicago.edu/cgi-bin/app/fabricius_query.py?qs=%E0%AE%85&amp;searchhws=yes"><hw>அ</hw></a>
-
-#<a href=http://dsalsrv02.uchicago.edu/cgi-bin/app/brown_query.py?page=1>1 </a>
-#<a href="http://dsalsrv02.uchicago.edu/cgi-bin/app/brown_query.py?qs=%E0%B0%85%E0%B0%82%E0%B0%9F%E0%B1%81&amp;searchhws=yes">
 clear;
 read -p "
 Please enter address of dictionary's homepage. (for example like http://dsal.uchicago.edu/dictionaries/brown/ for brown telugu dictionary.) : " dHomePage
@@ -56,68 +47,5 @@ And to note, all scraped word pages are in ./PadaPages folder, and all original 
 
 all scraped 'Dictionary pages' are in ./DictPages folder, and all original URls of those 'Dictionary Pages' to  dsal server are listed in DictPage_URLS.txt
 "
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
