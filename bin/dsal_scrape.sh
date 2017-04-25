@@ -19,13 +19,12 @@ Enter language code of language in which headwords of this this dict are in . li
 rm DictPage_URLS.txt
 for((i=1;i<=${dUpperLimit};i++));do echo "http://dsalsrv02.uchicago.edu/cgi-bin/app/${dDictName}_query.py?page=${i} " >> DictPage_URLS.txt; done
 sed -i 's/^ *//; s/ *$//;' DictPage_URLS.txt
-#for((i=1;i<=${dUpperLimit};i++));do echo "http://127.0.0.1/pages/brown_query_$i.htm" >> DictPage_URLS.txt; done
 mkdir DictPages
 parallel -j10 wget -nv --directory-prefix=DictPages :::: DictPage_URLS.txt
 cd DictPages && fnum=1
 for file in *; do mv $file dPage_${fnum}.htm; fnum=$((fnum+1)); done
 
-for file in *.htm; do  sed 's/< *\/a *>/✔/g;' $file | sed '/query.py?qs=/! d' | sed 's/^[^✔]*<a  *href=" *\([^"<>]*[^"<> ]\) *" *>.*$/\1/;' >> ../dPada_urls.txt; done
+for file in *.htm; do  sed 's/< *\/a *>/✔/g;' $file | sed '/query.py?qs=/! d' | sed "s/^[^✔]*<a  *href=\"[^<>]*_query.py?qs=\([^<>\"]*[^<>\" ]\) *\" *>.*/http:\/\/dsalsrv02.uchicago.edu\/cgi-bin\/app\/${dDictName}_query.py?qs=\1/;" >> ../dPada_urls.txt; done
 
 cd - && mkdir PadaPages
 parallel -j10 wget -nv --directory-prefix=PadaPages :::: dPada_urls.txt
@@ -47,5 +46,4 @@ And to note, all scraped word pages are in ./PadaPages folder, and all original 
 
 all scraped 'Dictionary pages' are in ./DictPages folder, and all original URls of those 'Dictionary Pages' to  dsal server are listed in DictPage_URLS.txt
 "
-
 
