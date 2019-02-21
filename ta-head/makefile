@@ -1,9 +1,9 @@
 STARDICT_TOOLS_DIR=~/stardict/tools/src/
 TABFILE=$(STARDICT_TOOLS_DIR)/tabfile
-STARDICT_SANSKRIT_BIN=~/sanskrit-coders/stardict-sanskrit/bin
+STARDICT_SANSKRIT_BIN=~/indic-dict/stardict-sanskrit/bin
 
 # Let the URL not end with /.
-URL=https://github.com/sanskrit-coders/stardict-tamil/raw/master/$(shell pwd|sed -e s/.*[/]//)/tars
+URL=https://github.com/indic-dict/stardict-tamil/raw/master/$(shell pwd|sed -e s/.*[/]//)/tars
 
 # make all DICTS=xyz
 DICTS=.*
