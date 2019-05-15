@@ -2,16 +2,16 @@ language: minimal
 if: branch = master
 
 install:
-  - sudo apt-get install -y stardict-tools
+  - sudo apt-get install -y stardict-tools oracle-java8-set-default
   - git clone https://github.com/indic-dict/dict-tools.git ~/dict-tools/ --depth 1
 
 git:
   depth: 1
 
-script: 
+script:
   - make all
 
-deploy:      
+deploy:
   provider: pages
   skip_cleanup: false
   github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
