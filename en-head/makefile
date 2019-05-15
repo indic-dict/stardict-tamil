@@ -14,9 +14,8 @@ DICTS=.*
 all:stardict tars
 
 stardict:
-	bash $(DICT_TOOLS_BIN_BASH)/tsv_to_stardict.sh 
+	bash $(DICT_TOOLS_BIN_BASH)/tsv_to_stardict.sh  DICTS=$(DICTS)
 
 
 tars:
 	bash $(DICT_TOOLS_BIN_BASH)/make_tarballs.sh  $(URL) DICTS=$(DICTS)
-
