@@ -1,1 +1,20 @@
+*.nogit
+
+*.dict.dz
+*.syn
+*.idx
+*.ifo
+*.babylon_final
+
+# The below is problematic. Let's keep checking them in till we have a better solution.
+#*.tar.gz
+
+# But not these files...
+!en-head/apte-bi/*
+!sa-head/french-entries/dictionnaire-heritage_du_sanskrit_san-fra/*
+
+/all_dicts_stardict-sanskrit.tar.gz
+local*
+move_to_stardict.sh
+
 *.iml
