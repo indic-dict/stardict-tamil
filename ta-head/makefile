@@ -23,3 +23,4 @@ tars:
 full:
 	bash $(DICT_TOOLS_BIN_BASH)/full_build.sh $(URL) DICTS=$(DICTS)
 
+ GITHUB_TOKEN=$(GITHUB_TOKEN)
