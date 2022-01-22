@@ -1,24 +1,19 @@
-STARDICT_TOOLS_DIR=~/stardict/tools/src/
-TABFILE=$(STARDICT_TOOLS_DIR)/tabfile
-DICT_TOOLS_BIN_BASH=~/dict-tools/bin/bash
+SUBDIRS := $(wildcard *entries*/.)
+TARGETS := full all tars tarlist  # whatever else, but must not contain '/'
 
-# Let the URL not end with /.
-URL=https://github.com/indic-dict/stardict-tamil/raw/gh-pages/$(shell pwd|sed -e s/.*[/]//)/tars
+# foo/.all bar/.all foo/.clean bar/.clean
+SUBDIRS_TARGETS := $(foreach t,$(TARGETS),$(addsuffix $t,$(SUBDIRS)))
 
-# make all DICTS=xyz
-DICTS=.*
+.PHONY : $(TARGETS) $(SUBDIRS_TARGETS)
 
+# static pattern rule, expands into:
+# all clean : % : foo/.% bar/.%
+$(TARGETS) : % : $(addsuffix %,$(SUBDIRS))
+	@echo 'Done "$*" target'
 
-.PHONY: all stardict tars
-
-all:stardict tars
-
-stardict:
-	bash $(DICT_TOOLS_BIN_BASH)/tsv_to_stardict.sh  DICTS=$(DICTS)
-
-
-tars:
-	bash $(DICT_TOOLS_BIN_BASH)/make_tarballs.sh $(URL) DICTS=$(DICTS)
-
-full:
-	bash $(DICT_TOOLS_BIN_BASH)/full_build.sh $(URL) DICTS=$(DICTS) GITHUB_TOKEN=$(GITHUB_TOKEN)
+# here, for foo/.all:
+#   $(@D) is foo
+#   $(@F) is .all, with leading period
+#   $(@F:.%=%) is just all
+$(SUBDIRS_TARGETS) :
+	$(MAKE) -C $(@D) $(@F:.%=%)
