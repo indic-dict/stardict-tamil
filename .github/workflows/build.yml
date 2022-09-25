@@ -5,8 +5,11 @@ on:
     branches: [ master ]
   workflow_dispatch:
     inputs:
-      logLevel:
-        default: 'warning'
+      overwrite:
+        description: "Overwrite output even if it doesn't seem outdated? Boolean. Default: false"
+        required: true
+        default: 'false'
+
 
 jobs:
   transform:
