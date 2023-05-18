@@ -35,7 +35,7 @@ jobs:
 #        Requirements as per https://github.com/ilius/pyglossary
     - name: Build dicts
       run: |
-        make full GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+        make full GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}"  OVERWRITE="${{ github.event.inputs.overwrite }}"
 #        git config --global user.email "you@example.com"
 #        git config --global user.name "Github Actions"
 #        git add -A -v

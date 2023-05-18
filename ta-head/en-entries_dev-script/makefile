@@ -7,6 +7,7 @@ URL=https://github.com/indic-dict/stardict-tamil/raw/gh-pages/ta-head/$(shell pw
 
 # make all DICTS=xyz
 DICTS=.*
+OVERWRITE=false
 
 
 .PHONY: all stardict tars
@@ -21,4 +22,4 @@ tars:
 	bash $(DICT_TOOLS_BIN_BASH)/make_tarballs.sh $(URL) DICTS=$(DICTS)
 
 full:
-	bash $(DICT_TOOLS_BIN_BASH)/full_build.sh $(URL) DICTS=$(DICTS) GITHUB_TOKEN=$(GITHUB_TOKEN)
+	bash $(DICT_TOOLS_BIN_BASH)/full_build.sh $(URL) DICTS=$(DICTS) GITHUB_TOKEN=$(GITHUB_TOKEN) overwrite=$(OVERWRITE)
