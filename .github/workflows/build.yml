@@ -3,6 +3,9 @@ name: Build
 on:
   push:
     branches: [ master ]
+    inputs:
+      overwrite:
+        default: 'false'
   workflow_dispatch:
     inputs:
       overwrite:
