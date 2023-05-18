@@ -3,9 +3,6 @@ name: Build
 on:
   push:
     branches: [ master ]
-    inputs:
-      overwrite:
-        default: 'false'
   workflow_dispatch:
     inputs:
       overwrite:
@@ -38,7 +35,7 @@ jobs:
 #        Requirements as per https://github.com/ilius/pyglossary
     - name: Build dicts
       run: |
-        make full GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}"  OVERWRITE="${{ github.event.inputs.overwrite }}"
+        make full GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}"  OVERWRITE="${{ github.event.inputs.overwrite||'false' }}"
 #        git config --global user.email "you@example.com"
 #        git config --global user.name "Github Actions"
 #        git add -A -v
