@@ -4,7 +4,7 @@ Stardict dictionaries for tamiL/ tamizh
 ## Description of dictionaries
 
 * en-head
-* 
+
 ![image](https://github.com/user-attachments/assets/c9660b17-5afc-45c8-8701-8b424f0b8fd1)
 
 * en-head_dev-script
