@@ -1,7 +1,10 @@
-# stardict-tamil
+## Intro
 Stardict dictionaries for tamiL/ tamizh
 
-## Description of dictionaries
+[![Build Status](https://travis-ci.com/indic-dict/stardict-tamil.svg?branch=master)](https://travis-ci.com/indic-dict/stardict-tamil)
+
+
+## Category examples
 
 * en-head
 
@@ -17,4 +20,3 @@ Stardict dictionaries for tamiL/ tamizh
 
 
 
-[![Build Status](https://travis-ci.com/indic-dict/stardict-tamil.svg?branch=master)](https://travis-ci.com/indic-dict/stardict-tamil)
